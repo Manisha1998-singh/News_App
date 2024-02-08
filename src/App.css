@@ -36,3 +36,6 @@
     transform: rotate(360deg);
   }
 }
+.cantanier .infinite-scroll-component {
+   overflow: unset !important;
+}

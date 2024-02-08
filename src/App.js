@@ -15,6 +15,8 @@ import LoadingBar from 'react-top-loading-bar'
 
 export default class App extends Component {
   pageSize = 15;
+  //apiKey = process.env.REACT_APP_NEWS_API
+  
   state = {
     progress: 0
   }
@@ -27,17 +29,19 @@ export default class App extends Component {
     return (
       <div>
         <Router>
+           <Navbar/>
+           
         <LoadingBar
         color='#f11946'
         progress={this.state.progress}
-        onLoaderFinished={() => setProgress(0)}
-      />
-        <Navbar/>
         
-        {/* <Spinner/> */}
+      />
+       
+        
+        
         < Routes>
           <Route exact path="/" element={<News setProgress = {this.setProgress}  key="general" pageSize={this.pageSize} country="in" category="general"/>}></Route>
-          <Route exact path="/business" element={<News setProgress = {this.setProgress}   key="business" pageSize={this.pageSize} country="in" category="business"/>}> </Route>
+          <Route exact path="/business" element={<News setProgress = {this.setProgress}  key="business" pageSize={this.pageSize} country="in" category="business"/>}> </Route>
           <Route exact path="/entertainment" element={<News setProgress = {this.setProgress}  key="entertainment" pageSize={this.pageSize} country="in" category="entertainment"/>} ></Route>
           <Route exact path="/general" element={<News setProgress = {this.setProgress}  key="general" pageSize={this.pageSize} country="in" category="general"/>}></Route>
           <Route exact path="/health" element={<News setProgress = {this.setProgress}  key="health" pageSize={this.pageSize} country="in" category="health"/>}></Route>

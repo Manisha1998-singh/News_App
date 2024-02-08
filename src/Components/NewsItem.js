@@ -7,7 +7,16 @@ export class NewsItem extends Component {
     return (
       <div>
         <div className="card">
-          <img
+          <div className="d-flex position-absolute top-0  end-0 justify-content-start">
+          <span
+                className=" badge rounded-pill bg-danger"
+                
+              >
+                {source}
+              </span>
+          </div>
+          <div style={{height: '270px'}}>
+          <img style={{height: '100%'}}
             src={
               imageUrl
                 ? imageUrl
@@ -20,16 +29,11 @@ export class NewsItem extends Component {
                 "https://news.cgtn.com/resource/default/img/breaking.png";
             }}
           />
-
+         </div>
           <div className="card-body">
             <h5 className="card-title">
               {title}
-              <span
-                class="position-absolute top-0 translate-middle badge rounded-pill bg-danger"
-                style={{ left: "90%", zIndex: "1" }}
-              >
-                {source}
-              </span>
+              
             </h5>
             <p className="card-text">{description}...</p>
             <p className="card-text">

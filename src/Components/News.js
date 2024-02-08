@@ -111,27 +111,28 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3"> 
-        this is news components.
-        {this.state.loading && <Spinner/>}
-      <h3 class="mt-4 mb-4 text-center">NewsEntertainment - Top Headlines</h3>
+        
+        {this.state.loading && <Spinner/>} 
+      <h3 className="mt-4 mb-4 text-center pt-5">NewsEntertainment - Top Headlines</h3>
+      <div className="cantanier">
       <InfiniteScroll
           dataLength={this.state.articles.length}
           next={this.fetchMoreData}
           hasMore={this.state.articles.length !== this.state.totalsReault}
-          loader={<Spinner/>}
+          //loader={<Spinner/>}
         >
-          <div className="cantanier">
-        <div className="row ">
+          
+        <div className="row">
        
             { this.state.articles.map((element)=>{
-               return <div className="col-md-4" key={element.url}>
+               return <div className="col-md-4 mt-4 mb-4" key={element.url}>
                 <NewsItem  title={element.title?element.title.slice(0, 30): " "} description={element.description?element.description.slice(0,90): " "} imageUrl={element.urlToImage } newsUrl={element.url}  author={element.author}  date={element.publishedAt} source={element.source.name}/>
                     </div>
             })}
             
             
                 </div>
-                </div>
+               
                 </InfiniteScroll>
 
                 {/* <h1 id="errorMsg"></h1>
@@ -140,6 +141,7 @@ export class News extends Component {
                 <button type="button" className="btn btn-dark"  onClick={this.clickToNext} >Next &rarr;</button>
                
                 </div> */}
+                 </div>
                 <h1 id="errorMsg"></h1>
                 
       </div>
